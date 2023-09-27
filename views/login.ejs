@@ -1,0 +1,48 @@
+<%- include('parts/top.ejs')%>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+
+    <form method="post" action="/login">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="form2Example1" class="form-control" name="email" placeholder="Email address"/>
+        </div>
+      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="form2Example2" class="form-control" name="password" placeholder="Password"/>
+        </div>
+      
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">log in</button>
+      
+        <!-- Register buttons -->
+    
+      </form>
+      <% if (erreurMessage && erreurMessage.length > 0) { %>
+      <div class="alert alert-danger">
+        <%=erreurMessage[0]%>
+      </div>
+      <%}%>
+      
+     <% if(successMessage && successMessage.length>0){%>
+        <div class="alert alert-success">
+          <%=successMessage[0]%>
+        </div>
+      <%}%>
+
+      <% if( successlogout && successlogout.length>0){%>
+        <div class="alert alert-success">
+          <%=successlogout[0]%>
+        </div>
+      <%}%>
+
+</div>
+
+
+
+
+
+<%- include('parts/bottom.ejs')%>

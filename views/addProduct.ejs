@@ -1,0 +1,61 @@
+
+<%- include('parts/top.ejs')%>
+
+<br><br><br><br><br><br><br><br>
+
+<div class="container mt-5">
+    <h1>Add New Product</h1>
+
+
+    <form action="/addproduct" method="POST" enctype="multipart/form-data">
+     <!-- Nom de la chaussure -->
+        <div class="form-group">
+            <label for="nomChaussure">nom du produit :</label>
+            <input type="text" class="form-control" id="nomChaussure" name="productname" required>
+        </div>
+        <!-- marque -->
+        <div class="form-group">
+            <label for="nomChaussure">Marque :</label>
+            <input type="text" class="form-control" id="nomChaussure" name="marque" required>
+        </div>
+
+        <!-- modele -->
+        <div class="form-group">
+            <label for="marqueChaussure">Modele :</label>
+            <input type="text" class="form-control" id="marqueChaussure" name="model" required>
+        </div>
+
+      
+        <!-- Prix de la chaussure -->
+        <div class="form-group">
+            <label for="prixChaussure">Prix :</label>
+            <input type="number" class="form-control" id="prixChaussure" name="price" step="0.01" required>
+        </div>
+
+        <!-- Description de la chaussure -->
+        <div class="form-group">
+            <label for="descriptionChaussure">Description :</label>
+            <textarea class="form-control" id="descriptionChaussure" name="description" rows="4" required></textarea>
+        </div>
+
+        <label for="imageProduit">Image du produit :</label>
+        <input type="file" id="imageProduit" name="imageProd" accept="image/*"  >
+        
+
+        <!-- Bouton pour soumettre le formulaire -->
+        <button type="submit" class="btn btn-secondary">ADD product</button>
+    </form>
+    <% if (Emessage && Emessage.length > 0) { %>
+        <div class="alert alert-danger">
+         <%=Emessage[0]%>
+        </div>
+        <% } %>
+
+        <% if (Smessage && Smessage.length > 0) { %>
+            <div class="alert alert-success">
+             <%=Smessage[0]%>
+            </div>
+            <% } %>
+</div>
+
+<%- include('parts/bottom.ejs')%>

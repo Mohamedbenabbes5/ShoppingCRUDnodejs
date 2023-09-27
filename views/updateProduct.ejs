@@ -1,0 +1,54 @@
+
+<%- include('parts/top.ejs')%>
+
+<br><br><br><br><br><br><br><br>
+
+<div class="container mt-5">
+    <h1>Add New Product</h1>
+
+
+    <form action="/myproducts/update/<%=oldproduct._id%>" method="POST" enctype="multipart/form-data">
+     <!-- Nom de la chaussure -->
+        <div class="form-group">
+            <label for="nomChaussure">nom du produit :</label>
+            <input type="text" class="form-control" id="nomChaussure" name="productname" required value="<%=oldproduct.titre %>">
+        </div>
+        <!-- marque -->
+        <div class="form-group">
+            <label for="nomChaussure">Marque :</label>
+            <input type="text" class="form-control" id="nomChaussure" name="marque" required value="<%=oldproduct.marque  %>">
+        </div>
+
+        <!-- modele -->
+        <div class="form-group">
+            <label for="marqueChaussure">Modele :</label>
+            <input type="text" class="form-control" id="marqueChaussure" name="model" required value="<%=oldproduct.model %>">
+        </div>
+
+      
+        <!-- Prix de la chaussure -->
+        <div class="form-group">
+            <label for="prixChaussure">Prix :</label>
+            <input type="number" class="form-control" id="prixChaussure" name="price" step="0.01" required value="<%=oldproduct.price %>">
+        </div>
+
+        <!-- Description de la chaussure -->
+        <div class="form-group">
+            <label for="descriptionChaussure">Description :</label>
+            <textarea class="form-control" id="descriptionChaussure" name="description" rows="4" required><%=oldproduct.description %></textarea>
+        </div>
+ 
+        <!-- Image de la chaussure -->
+       <!-- old image -->
+        <div><img style="width: 100px;" src="/uploads/<%=oldproduct.image%>" alt=""></div>
+        <label for="imageProduit">Image du produit :</label>
+        <input type="file" id="imageProduit" name="imageProd" accept="image/*"  value="<%=oldproduct.image %>">
+        
+<!-- <input type="hidden" name="productId" value="<%=oldproduct._id%>"> -->
+        <!-- Bouton pour soumettre le formulaire -->
+        <button type="submit" class="btn btn-secondary">update</button>
+    </form>
+
+</div>
+
+<%- include('parts/bottom.ejs')%>

@@ -1,0 +1,69 @@
+
+<%- include('parts/top.ejs')%>
+<br><br><br><br><br><br>
+<div class="container">
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">image</th>
+        <th scope="col">titre</th>
+        <th scope="col">model</th>
+        <th scope="col">price</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for (product of myproducts) {%>
+      <tr>
+        <th ><img style="width: 50px;" src="/uploads/<%=product.image%>" alt=""></th>
+        <td><%=product.titre%></td>
+        <td><%=product.model%></td>
+        <td><%=product.price%></td>
+        <td>
+
+
+
+          <a href="/myproducts/delete/<%=product._id%>"><button   type="submit" class="btn btn-danger">delete</button></a> 
+          <a href="/myproducts/update/<%=product._id%>"> <button   type="submit" class="btn btn-primary">update</button></a> 
+          
+        
+        
+        </td>
+
+      </tr>
+   <%}%>
+    </tbody>
+
+  </table> 
+
+
+</div>
+<!-- flash message for delete -->
+
+<% if (Edelete && Edelete.length > 0) { %>
+  <div class="alert alert-danger">
+   <%=Edelete[0]%>
+  </div>
+  <% } %>
+
+  <% if (Sdelete && Sdelete.length > 0) { %>
+      <div class="alert alert-success">
+       <%=Sdelete[0]%>
+      </div>
+      <% } %>
+<!-- flash message for update -->
+            <% if (Eupdate && Eupdate.length > 0) { %>
+              <div class="alert alert-danger">
+               <%=Eupdate[0]%>
+              </div>
+              <% } %>
+      
+              <% if (Supdate && Supdate.length > 0) { %>
+                  <div class="alert alert-success">
+                   <%=Supdate[0]%>
+                  </div>
+                  <% } %>
+<%- include('parts/bottom.ejs')%>
